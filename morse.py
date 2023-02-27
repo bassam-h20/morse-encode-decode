@@ -5,27 +5,32 @@ class morse:
         self.data = data
 
     def decode(msg: str) -> str:
-        words = msg.split(" ") # Split message into words using two spaces as delimiter
+        # Split message into words space as delimiter
+        words = msg.split(" ") 
         decoded_msg = ""
         for word in words:
-            letters = word.split() # Split each word into individual Morse code letters using single space as delimiter
+             # Split each word into individual morse code letters using single space as delimiter
+            letters = word.split()
             for letter in letters:
                 node = root
                 for symbol in letter:
-                    if symbol == ".": # Traverse left if dot
+                    # Traverse left if dot
+                    if symbol == ".": 
                         node = node.left
-                    elif symbol == "-": # Traverse right if dash
+                    # Traverse right if dash
+                    elif symbol == "-": 
                         node = node.right
                     else:
                         return ("Invalid Input")
                         break
                 if node.data is not None:
-                    decoded_msg += node.data # Append decoded letter to message
+                    decoded_msg += node.data
         return decoded_msg
 
     def encode(msg: str) -> str:
         encoded_msg = ""
         for letter in msg:
+                #check if letter is not defined in dictionary
                 if letter not in morse_dict:
                     return ("Invalid input")
                     break
