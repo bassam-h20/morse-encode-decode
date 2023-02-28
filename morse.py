@@ -29,15 +29,23 @@ class morse:
 
     def encode(msg: str) -> str:
         encoded_msg = ""
-        for letter in msg:
+        for letter in msg.upper():
                 #check if letter is not defined in dictionary
                 if letter not in morse_dict:
                     return ("Invalid input")
                     break
                 else:
                     encoded_msg += morse_dict.get(letter.upper(), '') + " "
-        return (encoded_msg)
-        
+        return (encoded_msg.strip())
+    
+    def print_tree(node, level = 0):
+        if node is not None:
+            print(" " * level, end="")
+            print(f"{node.data} -")
+            if node.left is not None or node.right is not None:
+                morse.print_tree(node.left, level+4)
+                morse.print_tree(node.right, level+4)
+
 
 
 root = morse('start')
@@ -66,7 +74,7 @@ root.left.left.right.right = morse('')
 
 #Left side (E) - Third level - (Under R)
 root.left.right.left.left = morse('L')
-root.left.right.left.right = morse('')
+root.left.right.left.right = morse(' ')
 
 #Left side (E) - Third level - (Under W)
 root.left.right.right.left = morse('P')
@@ -78,30 +86,30 @@ root.left.left.left.left.right = morse('4')
 
 #Left side (E) - Fourth level - (under V)
 root.left.left.left.right.right = morse('3')
-root.left.left.left.right.left = morse('')
+root.left.left.left.right.left = morse(' ')
 
 #Left side (E) - Fourth level - (under F)
-root.left.left.right.left.left = morse('')
-root.left.left.right.left.right = morse('')
+root.left.left.right.left.left = morse(' ')
+root.left.left.right.left.right = morse(' ')
 
 #Left side (E) - Fourth level - (under )
-root.left.left.right.right.left = morse('')
+root.left.left.right.right.left = morse(' ')
 root.left.left.right.right.right = morse('2')
 
 #Left side (E) - Fourth level - (Under L)
-root.left.right.left.left.left = morse('')
-root.left.right.left.left.right = morse('')
+root.left.right.left.left.left = morse(' ')
+root.left.right.left.left.right = morse(' ')
 
 #Left side (E) - Fourth level - (Under )
 root.left.right.left.right.left = morse('+')
-root.left.right.left.right.right = morse('')
+root.left.right.left.right.right = morse(' ')
 
 #Left side (E) - Fourth level - (Under P)
-root.left.right.right.left.left = morse('')
-root.left.right.right.left.right = morse('')
+root.left.right.right.left.left = morse(' ')
+root.left.right.right.left.right = morse(' ')
 
 #Left side (E) - Fourth level - (Under J)
-root.left.right.right.right.left = morse('')
+root.left.right.right.right.left = morse(' ')
 root.left.right.right.right.right = morse('1')
 
 #Right side (T)
@@ -132,8 +140,8 @@ root.right.right.left.left = morse('Z')
 root.right.right.left.right = morse('Q')
 
 #Right side (T) - Third level - (under O)
-root.right.right.right.left = morse('')
-root.right.right.right.right = morse('')
+root.right.right.right.left = morse(' ')
+root.right.right.right.right = morse(' ')
 
 #Right side (T) - Fourth level - (under B)
 root.right.left.left.left.left = morse('6')
@@ -141,27 +149,27 @@ root.right.left.left.left.right = morse('=')
 
 #Right side (T) - Fourth level - (under X)
 root.right.left.left.right.left = morse('/')
-root.right.left.left.right.right = morse('')
+root.right.left.left.right.right = morse(' ')
 
 #Right side (T) - Fourth level - (under C)
-root.right.left.right.left.left = morse('')
-root.right.left.right.left.right = morse('')
+root.right.left.right.left.left = morse(' ')
+root.right.left.right.left.right = morse(' ')
 
 #Right side (T) - Fourth level - (under Y)
-root.right.left.right.right.left = morse('')
-root.right.left.right.right.right = morse('')
+root.right.left.right.right.left = morse(' ')
+root.right.left.right.right.right = morse(' ')
 
 #Right side (T) - Fourth level - (under Z)
 root.right.right.left.left.left = morse('7')
-root.right.right.left.left.right = morse('')
+root.right.right.left.left.right = morse(' ')
 
 #Right side (T) - Fourth level - (under Q)
-root.right.right.left.right.left = morse('')
-root.right.right.left.right.right = morse('')
+root.right.right.left.right.left = morse(' ')
+root.right.right.left.right.right = morse(' ')
 
 #Right side (T) - Fourth level - (under left  under O)
 root.right.right.right.left.left = morse('8')
-root.right.right.right.left.right = morse('')
+root.right.right.right.left.right = morse(' ')
 
 #Right side (T) - Fourth level - (under right  under O)
 root.right.right.right.right.left = morse('9')
@@ -239,6 +247,9 @@ morse_dict = {
 }
 
 if __name__ == "__main__":
+    print("Morse code binary tree:")
+    morse.print_tree(root)
+    print("\n\n")
     while True:
         option = input("Encode(E) or Decode(D): ").upper()
         if option == 'E':
