@@ -1,21 +1,9 @@
 from morse import morse
 
-def test_encode_us():
-    assert morse.encode('us') == '..- ...', print("Should be ..- ...")
-
-def test_decode():
-    assert morse.decode('..- ...') == 'US', print("Should be 'us'")
-
-
 if __name__ == "__main__":
-    test_encode_us()
-    print("passed first test")
-    test_decode()
-    print("Everything passed successfully")
-
-    
-    
-    
-
-
-    
+    e = morse.encode('us')
+    print('encoded: %s' %e)
+    d = morse.decode(e)
+    print('decoded: %s' %d)
+    assert morse.encode('us') == '..- ...', print("Should be ..- ...")
+    assert morse.decode('..- ...') == 'US', print("Should be US")
