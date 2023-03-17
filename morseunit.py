@@ -42,9 +42,19 @@ class TestMorse(unittest.TestCase):
     def test_decode_custom_5(self):
         self.assertEqual(morse.decode('- .... .. ...   .. ...   .- -.   . -..- - .-. . -- . .-.. -.--   .-.. --- -. --.   -- . ... ... .- --. .   - ---   -.. . -.-. --- -.. .'),'THISISANEXTREMELYLONGMESSAGETODECODE')
 
-    def test_binary_test(self):
+    def test_binary_tree_is_empty1(self):
         self.assertEqual(root.left.left.right.right.data, "")
     
+    def test_binary_tree_is_empty2(self):
+        self.assertEqual(root.left.right.left.right.data, " ")
+
+    def test_binary_tree_is_not_empty1(self):
+        self.assertEqual(root.right.left.left.right.data, "X")
+
+    def test_binary_is_not_empty2(self):
+        self.assertEqual(root.left.right.left.right.left.data, "+")
+
+
 if __name__ == "__main__":
     unittest.main()
     
