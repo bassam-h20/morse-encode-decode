@@ -35,7 +35,7 @@ class morse:
                     return ("Invalid input")
                     break
                 else:
-                    encoded_msg += morse_dict.get(letter.upper(), '') + " "
+                    encoded_msg += morse_dict.get(letter.upper(), '') + ' '
         return (encoded_msg.strip())
     
     def print_tree(node, level = 0):
@@ -243,7 +243,9 @@ morse_dict = {
 "8" : "---..",
 "" : "---.-",
 "9" : "----.",
-"0" : "-----"
+"0" : "-----",
+#space
+" ": " "
 }
 
 if __name__ == "__main__":
