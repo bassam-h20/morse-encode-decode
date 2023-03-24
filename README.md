@@ -1,3 +1,6 @@
+# Worksheet 2 Part 1
+
+
 ### morse.py uses two main functions (1) encode and (2) decode which both convert characters and symbols to morse code and vice versa
 
 * When the program is run it prints out the binary tree used to decode the morse code in the decode function.
