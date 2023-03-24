@@ -6,7 +6,8 @@
 
 * And then gives the user the option to (E) encode or (D) decode, and enter the characters accordingly 
 
+
+### Task 2 was to implement the two functions mentioned and make sure they work properly, and that can be seen through the image below
+
 ###### as shown in the picture in order to create spaces the "/" character must be inserted when decoding
 ![user option](./terminal-output.png)
-
-
