@@ -25,18 +25,20 @@ class TestMorse(unittest.TestCase):
     def test_encode_custom_5(self):
         self.assertEqual(morse.encode('e i s h t m o 0'), '.   ..   ...   ....   -   --   ---   -----')
     
+    #testing if decode function will detect "/" and detect a space
     def test_decode_custom_1(self):
-        self.assertEqual(morse.decode('.... . .-.. .-.. ---   - .... . .-. .'),'HELLOTHERE')
+        self.assertEqual(morse.decode('.... . .-.. .-.. --- / - .... . .-. .'),'HELLO THERE')
 
+    #"/" not inserted so decode function should not detect a space
     def test_decode_custom_2(self):
-        self.assertEqual(morse.decode('-.-. --- -- .--.   ... -.-. ..'),'COMPSCI')
+        self.assertEqual(morse.decode('-.-. --- -- .--.  ... -.-. ..'),'COMPSCI')
 
+    #Decoded message does not include spaces therefore is incorrect
     def test_decode_custom_3(self):
-        #Decoded message does not include spaces therefore is incorrect
-        self.assertEqual(morse.decode('- .... .. ...   .-- .- ...   ..-. ..- -.'),'THIS WAS FUN')
+        self.assertEqual(morse.decode('- .... .. ...  .-- .- ... -.... ..-. ..- -.'),'THISWAS6FUN')
 
+    #Invalid symbol (*) therefore is incorrect
     def test_decode_custom_4(self):
-        #Invalid symbol (*) therefore is incorrect
         self.assertEqual(morse.decode('* .... .- .... .-'),'*HAHA')
 
     def test_decode_custom_5(self):
@@ -45,7 +47,7 @@ class TestMorse(unittest.TestCase):
     def test_binary_tree_is_empty1(self):
         self.assertEqual(root.left.left.right.right.data, "")
     
-    def test_binary_tree_is_empty2(self):
+    def test_binary_tree_is_empty2(self): 
         self.assertEqual(root.left.right.left.right.data, " ")
 
     def test_binary_tree_is_not_empty1(self):
@@ -53,6 +55,9 @@ class TestMorse(unittest.TestCase):
 
     def test_binary_is_not_empty2(self):
         self.assertEqual(root.left.right.left.right.left.data, "+")
+
+    def additional_symbol_test(self):
+        self.assertEqual(morse.decode(":"), "---...")
 
 
 if __name__ == "__main__":

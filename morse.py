@@ -4,6 +4,7 @@ class morse:
         self.right = None
         self.data = data
 
+    #function that decodes morse code and outputs text, characters and symbols
     def decode(msg: str) -> str:
         # Split message into words space as delimiter
         words = msg.split(" ") 
@@ -20,6 +21,8 @@ class morse:
                     # Traverse right if dash
                     elif symbol == "-": 
                         node = node.right
+                    elif symbol == "/":
+                        decoded_msg += " "
                     else:
                         return ("Invalid Input")
                         break
@@ -27,6 +30,7 @@ class morse:
                     decoded_msg += node.data
         return decoded_msg
 
+    #function takes letters, characters, symbols and outputs morse code
     def encode(msg: str) -> str:
         encoded_msg = ""
         for letter in msg.upper():
@@ -48,7 +52,7 @@ class morse:
 
 
 
-root = morse('start')
+root = morse('')
 #Left side (E)
 root.left = morse('E')
 
@@ -174,6 +178,27 @@ root.right.right.right.left.right = morse(' ')
 #Right side (T) - Fourth level - (under right  under O)
 root.right.right.right.right.left = morse('9')
 root.right.right.right.right.right = morse('0')
+
+#Additional Symbols
+root.left.right.left.right.left.right = morse(".")
+root.right.right.left.left.right.right = morse(",")
+root.left.left.right.right.left = morse("?")
+root.left.right.right.right.right.left = morse("'")
+root.right.left.right.left.right.right = morse("!")
+root.right.left.right.right.left = morse("(")
+root.right.left.right.right.left.right = morse(")")
+root.left.right.left.left.left = morse("&")
+root.right.right.right.left.left.left = morse(":")
+root.right.left.right.left.right.left = morse(";")
+root.right.left.left.left.left.right = morse("-")
+root.left.left.right.right.left.right = morse("_")
+root.left.right.left.left.right.left = morse('"')
+root.left.left.left.right.left.left = morse("")
+root.left.left.left.right.left.right = morse("")
+root.left.left.left.right.left.left.right = morse("$")
+root.left.left.right.left.right = morse("¿")
+root.right.right.left.left.left.right = morse("¡")
+
 
 
 morse_dict = {
