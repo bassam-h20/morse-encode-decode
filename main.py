@@ -7,3 +7,4 @@ if __name__ == "__main__":
     print('decoded: %s' %d)
     assert morse.encode('us') == '..- ...', print("Should be ..- ...")
     assert morse.decode('..- ...') == 'US', print("Should be US")
+    print("Everything passed.")
