@@ -28,4 +28,8 @@ These are the tests that were purposely made to fail
 
 ### Task 4 was to add a set of morse encodings of frequently used symbols, and added tests for these symbols that are also included in the morseunit.py file
 
+The additional symbols were added to both the dictionary and the binary tree
 
+![additional symbols in dictionary](./additional-symbols.png)
+
+![additional symbol tests](./additional-symbols-test.png)
