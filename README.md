@@ -7,13 +7,16 @@
 * And then gives the user the option to (E) encode or (D) decode, and enter the characters accordingly 
 
 
+
 ### Task 2 was to implement the two functions mentioned and make sure they work properly, and that can be seen through the image below
 
 ###### as shown in the picture in order to create spaces the "/" character must be inserted when decoding
 ![user option](./terminal-output.png)
 
 
+
 ### Task 3 was to create a simple assert test (in main.py) for the two functions implemented and another file (morseunit.py) that used the unittest library
+
 
 ##### In morseunit.py, it was asked to create tests for the encode and decode function. Also added tests for verifying the empty and non-empty nodes of the implemented binary tree.
 
@@ -26,7 +29,8 @@ These are the tests that were purposely made to fail
 ![unit tests](./unit-test.png)
 
 
-### Task 4 was to add a set of morse encodings of frequently used symbols, and added tests for these symbols that are also included in the morseunit.py file
+
+### Task 4 was to add a set of morse encodings more symbols, and added tests for these symbols that are included in the morseunit.py file
 
 The additional symbols were added to both the dictionary and the binary tree
 
