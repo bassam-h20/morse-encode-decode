@@ -4,7 +4,7 @@ class morse:
         self.right = None
         self.data = data
 
-    #function that decodes morse code and outputs text, characters and symbols
+    #function that decodes morse code and outputs text, characters and symbols according to the binary tree implemented
     def decode(msg: str) -> str:
         # Split message into words space as delimiter
         words = msg.split(" ") 
@@ -30,7 +30,7 @@ class morse:
                     decoded_msg += node.data
         return decoded_msg
 
-    #function takes letters, characters, symbols and outputs morse code
+    #function takes letters, characters, symbols and outputs morse code according to the "morse_dict" dictionary
     def encode(msg: str) -> str:
         encoded_msg = ""
         for letter in msg.upper():
