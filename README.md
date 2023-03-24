@@ -24,6 +24,7 @@
 ##### In morseunit.py, it was asked to create tests for the encode and decode function. Also added tests for verifying the empty and non-empty nodes of the implemented binary tree.
 
 1. output of main.py
+
 ![assert test](./assert-test.png)
 
 2. output of morseunit.py
@@ -33,7 +34,7 @@ These are the tests that were purposely made to fail
 
 
 
-### Task 4 was to add a set of morse encodings more symbols, and added tests for these symbols that are included in the morseunit.py file
+### Task 4 was to add a set of morse encodings of more symbols, and added tests for these symbols that are included in the morseunit.py file
 
 The additional symbols were added to both the dictionary and the binary tree
 
