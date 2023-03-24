@@ -15,8 +15,18 @@
 
 ### Task 3 was to create a simple assert test (in main.py) for the two functions implemented and another file (morseunit.py) that used the unittest library
 
-1. main.py
+##### In morseunit.py, it was asked to create tests for the encode and decode function. Also added tests for verifying the empty and non-empty nodes of the implemented binary tree.
+
+1. output of main.py
 ![assert test](./assert-test.png)
 
-2. morseunit.py
+2. output of morseunit.py
+
+These are the tests that were purposely made to fail
+![unit tests](./unit-test.png)
+
+
+### Task 4 was to add a set of morse encodings of frequently used symbols, and added tests for these symbols that are also included in the morseunit.py file
+
+
 
