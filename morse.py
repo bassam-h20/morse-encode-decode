@@ -367,6 +367,6 @@ if __name__ == "__main__":
             user_input = input("\nEnter the extended morse code you wish to decode: ")
             user_ext_decoded = morse.decode_ham(user_input)
             print("Decoded result (sender, receiver, message):", user_ext_decoded)
-        q
+        
         else:
             print("Error: Enter valid input")
