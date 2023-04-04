@@ -33,6 +33,7 @@ class morse:
     #same functionality as decode() but uses a string representation of a binary heap instead
     #to decode morse code
     def decode_bt(msg: str) -> str:
+        # % symbols are for empty/blank nodes
         tree = "-@ETIANMSURWDKGOHVF%L%PJBXCYZQ%%54%3%%%2%%+%%%%16=/%%%%%7%%%8%90"
         i = 1
         words = msg.split(" ")
@@ -63,7 +64,8 @@ class morse:
         morse_msg = morse.decode(user_msg)
         morse_receiver = morse.decode(receiver)
         morse_sender = morse.decode(sender)
-        return morse_sender, morse_receiver, morse_msg
+        final_result = print("Message from:",morse_sender, "\nMessage to:",morse_receiver, "\nMessage content:",morse_msg)
+        return (final_result)
     
 
     #function takes letters, characters, symbols and outputs morse code according to the "morse_dict" dictionary
@@ -245,7 +247,7 @@ root.left.left.right.left.right = morse("¿")
 root.right.right.left.left.left.right = morse("¡")
 
 
-
+#python dicrtionart to decode morse code
 morse_dict = {
 #First level
 "E" : ".",
@@ -340,6 +342,7 @@ if __name__ == "__main__":
     morse.print_tree(root)
     print("\n\n")
     while True:
+        #user prompts for user to choose which operation to use
         option = input("\n\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
         if option == 'E':
             user_input = input("\nEnter the characters you wish to encode: ")
@@ -366,7 +369,6 @@ if __name__ == "__main__":
         elif option == 'D2':
             user_input = input("\nEnter the extended morse code you wish to decode: ")
             user_ext_decoded = morse.decode_ham(user_input)
-            print("Decoded result (sender, receiver, message):", user_ext_decoded)
         
         else:
             print("Error: Enter valid input")
