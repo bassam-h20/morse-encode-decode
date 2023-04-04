@@ -41,3 +41,14 @@ The additional symbols were added to both the dictionary and the binary tree
 ![additional symbols in dictionary](./additional-symbols.png)
 
 ![additional symbol tests](./additional-symbols-test.png)
+
+# Worksheet 2 Part 2
+
+### Task 1 was to implement the morse decode function using a binary heap string representation by using the T[(2 * i)] formula to go left (.) and the T[(2 * i) + 1] formula to go right (-)
+
+* 6 unit tests were added to ensure the function is working as it should be
+
+An example of running the code (a "/" is used to split words):
+
+
+![terminal output of task 1](./terminal-output2.png)
