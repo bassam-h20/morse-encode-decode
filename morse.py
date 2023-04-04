@@ -29,6 +29,40 @@ class morse:
                 if node.data is not None:
                     decoded_msg += node.data
         return decoded_msg
+    
+
+    def decode_bt(msg: str) -> str:
+        tree = "-@ETIANMSURWDKGOHVF%L%PJBXCYZQ%%54%3%%%2%%+%%%%16=/%%%%%7%%%8%90"
+        i = 1
+        words = msg.split(" ")
+        decoded_msg = ""
+        for word in words:
+            letters = word.split()
+            for letter in letters:
+                for symbol in letter:
+                    if symbol == ".":
+                        i = 2 * i # move to the left child
+                    elif symbol == "-":
+                        i = 2 * i + 1 # move to the right child
+                    elif symbol == "/":
+                        decoded_msg += " "
+                    else:
+                        return ("Invalid Input")
+                        break
+                if tree[i] == "@":
+                    decoded_msg += ""
+                else:
+                    decoded_msg += tree[i]
+                i = 1
+        return decoded_msg
+
+    def decode_ham(msg: str) -> (str, str, str):
+        sender, _, receiver, _,  user_msg, _ = msg.split("/")
+        morse_msg = morse.decode(user_msg)
+        morse_receiver = morse.decode(receiver)
+        morse_sender = morse.decode(sender)
+        return morse_sender, morse_receiver, morse_msg
+    
 
     #function takes letters, characters, symbols and outputs morse code according to the "morse_dict" dictionary
     def encode(msg: str) -> str:
@@ -42,6 +76,14 @@ class morse:
                     encoded_msg += morse_dict.get(letter.upper(), '') + ' '
         return (encoded_msg.strip())
     
+    def encode_ham(sender: str, receiver: str, msg: str) -> str:
+        morse_sender = morse.encode(sender.upper())
+        morse_receiver = morse.encode(receiver.upper())
+        morse_msg = morse.encode(msg.upper())
+        encoded_msg2 = f"{morse_sender}  / -.. . / {morse_receiver} / -...- / {morse_msg} / -...- -.--."
+        return encoded_msg2
+    
+
     def print_tree(node, level = 0):
         if node is not None:
             print(" " * level, end="")
@@ -295,14 +337,33 @@ if __name__ == "__main__":
     morse.print_tree(root)
     print("\n\n")
     while True:
-        option = input("Encode(E) or Decode(D): ").upper()
+        option = input("\n\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
         if option == 'E':
-            user_input = input("Enter the characters you wish to encode: ")
+            user_input = input("\nEnter the characters you wish to encode: ")
             user_encoded = morse.encode(user_input)
-            print("Encoded Result: ", user_encoded,"\n")
+            print("Encoded Result:", user_encoded,"\n")
+        
         elif option == 'D':
-            user_input = input("Enter the morse code you wish to decode: ")
+            user_input = input("\nEnter the morse code you wish to decode: ")
             user_decoded = morse.decode(user_input)
-            print("Decoded Result: ", user_decoded,"\n")
+            print("Decoded Result:", user_decoded,"\n")
+        
+        elif option == 'DB':
+            user_input = input("\nEnter Morse code you wish to decode: ")
+            user_decoded = morse.decode_bt(user_input)
+            print(user_decoded)
+
+        elif option == 'E2':
+            sender = input("\nEnter the sender's name: ")
+            receiver = input("Enter the receiver's name: ")
+            user_input = input("Enter the charactsers you wish to encode in extended morse code: ")
+            user_ext_encoded = morse.encode_ham(sender, receiver, user_input)
+            print("Encoded result:",user_ext_encoded)
+        
+        elif option == 'D2':
+            user_input = input("\nEnter the extended morse code you wish to decode: ")
+            user_ext_decoded = morse.decode_ham(user_input)
+            print("Decoded result (sender, receiver, message):", user_ext_decoded)
+        q
         else:
             print("Error: Enter valid input")

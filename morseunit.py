@@ -65,7 +65,25 @@ class TestMorse(unittest.TestCase):
     def additional_symbol_test3(self):
         self.assertEqual(morse.encode(" - .... .. ... ..-.-   .. ...   -. .. -.-. ."),"this$ is nice")
 
+    def unit_tests_decode_bt1(self):
+        self.assertEqual(morse.decode_bt("..-"), "U")
+    
+    def unit_tests_decode_bt2(self):
+        self.assertEqual(morse.decode_bt("... --- ..."), "SOS")
 
+    def unit_tests_decode_bt3(self):
+        self.assertEqual(morse.decode_bt(".... . .-.. .-.. --- / - .... . .-. ."), "HELLO THERE")
+    
+    def unit_tests_decode_bt4(self):
+        self.assertEqual(morse.decode_bt("..--"), "%")
+        
+    def unit_tests_decode_bt5(self):
+        self.assertEqual(morse.decode_bt("... -..-. --- -..-. ..."), "S/O/S")
+        
+    def unit_tests_decode_bt6(self):
+        self.assertEqual(morse.decode_bt("... ..- -. -. -.-- -...- -.. .- -.--"), "SUNNY=DAY")
+
+        
 if __name__ == "__main__":
     unittest.main()
     
