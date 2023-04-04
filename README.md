@@ -67,6 +67,6 @@ Implementing the decode function using a binary heap was easier as it was a simp
 
 * (encode_ham) asks the user to enter the sender, receiver, and the message to be sent and converts it to extended morse code as shown below
 
-* (decode_ham) asks the user to enter the extended morse code, and decodes it to characters and symbols (the '/' character is to seperate words). It then displays in the form of a tuple the sender, receiver, and message that are in the extended morse code
+* (decode_ham) asks the user to enter the extended morse code, and decodes it to characters and symbols (the '/' character is to seperate words). It then displays the sender, receiver, and message that are in the extended morse code
 
 ![encode_ham example](./morse_task2.png)
