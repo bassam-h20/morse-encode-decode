@@ -30,7 +30,8 @@ class morse:
                     decoded_msg += node.data
         return decoded_msg
     
-
+    #same functionality as decode() but uses a string representation of a binary heap instead
+    #to decode morse code
     def decode_bt(msg: str) -> str:
         tree = "-@ETIANMSURWDKGOHVF%L%PJBXCYZQ%%54%3%%%2%%+%%%%16=/%%%%%7%%%8%90"
         i = 1
@@ -56,6 +57,7 @@ class morse:
                 i = 1
         return decoded_msg
 
+    #decodes morse code that encoded extended morse code from a ham radio conversation
     def decode_ham(msg: str) -> (str, str, str):
         sender, _, receiver, _,  user_msg, _ = msg.split("/")
         morse_msg = morse.decode(user_msg)
@@ -76,6 +78,7 @@ class morse:
                     encoded_msg += morse_dict.get(letter.upper(), '') + ' '
         return (encoded_msg.strip())
     
+    #encodes extended morse code for a ham radio converstation
     def encode_ham(sender: str, receiver: str, msg: str) -> str:
         morse_sender = morse.encode(sender.upper())
         morse_receiver = morse.encode(receiver.upper())
@@ -83,7 +86,7 @@ class morse:
         encoded_msg2 = f"{morse_sender}  / -.. . / {morse_receiver} / -...- / {morse_msg} / -...- -.--."
         return encoded_msg2
     
-
+    #function that prints the binary tree implemented, includes all characters and symbols added to the binary tree
     def print_tree(node, level = 0):
         if node is not None:
             print(" " * level, end="")
