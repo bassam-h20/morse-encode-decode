@@ -46,9 +46,19 @@ The additional symbols were added to both the dictionary and the binary tree
 
 ### Task 1 was to implement the morse decode function using a binary heap string representation by using the T[(2 * i)] formula to go left (.) and the T[(2 * i) + 1] formula to go right (-)
 
+* P.S: The "%" character represents empty nodes
+
 * 6 unit tests were added to ensure the function is working as it should be
 
 An example of running the code (a "/" is used to split words):
 
 
 ![terminal output of task 1](./terminal-output2.png)
+
+##### Differences of using a binary tree, python dictionary and binary heap to decode morse messages
+
+According to the use of a binary tree in my code to decode messages, it stored morse code in nodes in which each node would represent a morse character '.' or '-', to decode a message it would traverse the tree based on the morse code given by the user. 
+
+A python dictionary could've been used for both encode and decode functions, meaning the use of a dictionary is flexible, however I only implemented a dictionary for decoding morse. A dictionary would look up the corresponding value to the morse character. Using a dictionary offered flexibility and was easier to modify when needed.
+
+Implementing the decode function using a binary heap was easier as it was a simple string array representing the binary heap. When the user enters morse code, the function uses a mathematical formula to traverse through the string to find the character and decode the message. This method was simpler to execute than using a binary tree and was easier to understand.
