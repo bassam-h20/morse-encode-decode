@@ -349,7 +349,7 @@ if __name__ == "__main__":
     
     while True:
         #user prompts for user to choose which operation to use
-        option = input("\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
+        option = input("q\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
         if option == 'E':
             user_input = input("\nEnter the characters you wish to encode: ")
             user_encoded = morse.encode(user_input)
