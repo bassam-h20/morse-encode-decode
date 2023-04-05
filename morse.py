@@ -59,15 +59,17 @@ class morse:
         return decoded_msg
 
     #decodes morse code that encoded extended morse code from a ham radio conversation
-    def decode_ham(msg: str) -> (str, str, str):
-        sender, _, receiver, _,  user_msg, _ = msg.split("/")
-        morse_msg = morse.decode(user_msg)
-        morse_receiver = morse.decode(receiver)
-        morse_sender = morse.decode(sender)
-        final_result = print("Message from:",morse_sender, "\nMessage to:",morse_receiver, "\nMessage content:",morse_msg)
-        return (final_result)
-    
+    def decode_ham(msg: str) -> str:
+        decoded_msg = morse.decode(msg)
+        print("full-text: ",decoded_msg.lower())
+        morse_receiver, second_part_message = decoded_msg.split("DE", 1)
+        morse_sender, morse_content, _= second_part_message.split("=")
+        final_msg_display = "Decoded:\nMessage from: "+morse_sender.lower()+"\nMessage to: "+morse_receiver.lower()+"\nMessage content: "+morse_content.replace("/", " ").lower()
+        return final_msg_display
 
+
+    
+    
     #function takes letters, characters, symbols and outputs morse code according to the "morse_dict" dictionary
     def encode(msg: str) -> str:
         encoded_msg = ""
@@ -80,14 +82,17 @@ class morse:
                     encoded_msg += morse_dict.get(letter.upper(), '') + ' '
         return (encoded_msg.strip())
     
-    #encodes extended morse code for a ham radio converstation
+    #encodes extended morse code for a ham radio converstation    
     def encode_ham(sender: str, receiver: str, msg: str) -> str:
-        morse_sender = morse.encode(sender.upper())
-        morse_receiver = morse.encode(receiver.upper())
-        morse_msg = morse.encode(msg.upper())
-        encoded_msg2 = f"{morse_sender}  / -.. . / {morse_receiver} / -...- / {morse_msg} / -...- -.--."
+        morse_receiver = morse.encode(receiver)
+        morse_sender = morse.encode(sender)
+        morse_msg = morse.encode(msg)
+        encoded_msg2 = f"{morse_receiver} -.. . {morse_sender} -...- {morse_msg} -...- -.--."
         return encoded_msg2
     
+
+    
+
     #function that prints the binary tree implemented, includes all characters and symbols added to the binary tree
     def print_tree(node, level = 0):
         if node is not None:
@@ -341,9 +346,10 @@ if __name__ == "__main__":
     print("Morse code binary tree:")
     morse.print_tree(root)
     print("\n\n")
+    
     while True:
         #user prompts for user to choose which operation to use
-        option = input("\n\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
+        option = input("\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
         if option == 'E':
             user_input = input("\nEnter the characters you wish to encode: ")
             user_encoded = morse.encode(user_input)
@@ -369,6 +375,7 @@ if __name__ == "__main__":
         elif option == 'D2':
             user_input = input("\nEnter the extended morse code you wish to decode: ")
             user_ext_decoded = morse.decode_ham(user_input)
-        
+            print(user_ext_decoded)
+
         else:
             print("Error: Enter valid input")
