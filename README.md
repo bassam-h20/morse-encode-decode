@@ -71,4 +71,16 @@ Implementing the decode function using a binary heap was easier as it was a simp
 
 ![encode_ham example](./morse_task2.png)
 
-### Task 3
+### Task 3 was to implement a program to communicate with the extended morse server, the morse server offers two services:
+1. Sending back an echo of the message received by the server
+2. Sending the curren time when requested by the user
+
+* The goal is to develop two functions "send_echo" and "send_time" that use the previously mentioned functions "encode_ham" and "decode_ham" to send messages to the server in morse code, and decode the messages received from the server.
+
+* The "send_echo" function sends a message to the server, with the name of the sender, receiver (which needs to be "echo", for the server's echo service to work),and the message content, all inserted as parameters in "encode_ham". the function then returns the decoded message sent back from the server. The function prompts the user to enter the sender's name and the message content.
+
+* The "send_time" function sends a message requesting the time, also using "encode_ham" with the receiver needing to be "time" and the message content as "hello world", the function will return the decoded message which contains the current time.
+
+An example of running both these functions would look like:
+
+![send_echo & send_time](./morse_task3.png)
