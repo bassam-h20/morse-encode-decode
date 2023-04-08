@@ -9,9 +9,6 @@ async def recv_message(websocket):
     message = json.loads(await websocket.recv())
     return message
 
-async def recv_message2(websocket):
-    message = json.loads(await websocket.recv())
-    return message
     
 async def send_echo(websocket, sender: str, msg: str, client_id) -> str:
     encoded_msg = morse.encode_ham(sender, 'echo', msg)
@@ -49,7 +46,7 @@ async def main():
         print("\nTime:")
         time_sender = "s"
         await send_time(websocket, time_sender, client_id)
-        time_response = await recv_message2(websocket)
+        time_response = await recv_message(websocket)
         print("The server sent back:\n",time_response['payload'])
         print(morse.decode_ham(time_response['payload']))
         
