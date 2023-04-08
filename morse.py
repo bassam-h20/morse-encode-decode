@@ -61,10 +61,10 @@ class morse:
     #decodes morse code that encoded extended morse code from a ham radio conversation
     def decode_ham(msg: str) -> str:
         decoded_msg = morse.decode(msg)
-        print("full-text: ",decoded_msg.lower())
+        print("full decoded text: ",decoded_msg.lower())
         morse_receiver, second_part_message = decoded_msg.split("DE", 1)
         morse_sender, morse_content, _= second_part_message.split("=")
-        final_msg_display = "Decoded:\nMessage from: "+morse_sender.lower()+"\nMessage to: "+morse_receiver.lower()+"\nMessage content: "+morse_content.replace("/", " ").lower()
+        final_msg_display = "Decoded:\nMessage from: "+morse_sender.replace("/", " ").lower()+"\nMessage to: "+morse_receiver.replace("/", " ").lower()+"\nMessage content: "+morse_content.replace("/", " ").lower()
         return final_msg_display
 
 
@@ -349,7 +349,7 @@ if __name__ == "__main__":
     
     while True:
         #user prompts for user to choose which operation to use
-        option = input("q\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
+        option = input("\n- Encode(E) or Decode(D) or Decode with Binary Heap(DB)\n- Extended Encode(E2) or Extended Decode(D2): ").upper()
         if option == 'E':
             user_input = input("\nEnter the characters you wish to encode: ")
             user_encoded = morse.encode(user_input)

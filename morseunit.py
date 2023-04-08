@@ -56,34 +56,67 @@ class TestMorse(unittest.TestCase):
     def test_binary_is_not_empty2(self):
         self.assertEqual(root.left.right.left.right.left.data, "+")
 
-    def additional_symbol_test(self):
-        self.assertEqual(morse.decode(":"), "---...")
 
-    def additional_symbol_test2(self):
-        self.assertEqual(morse.decode("hello$world"), ".... . .-.. .-.. --- ...-..- .-- --- .-. .-.. -..")
+def additional_symbol_test():
+    assert morse.decode("---...") == ":", print("Should be :")
+    print("Test passed successfully")
 
-    def additional_symbol_test3(self):
-        self.assertEqual(morse.encode(" - .... .. ... ..-.-   .. ...   -. .. -.-. ."),"this$ is nice")
+def addtional_symbol_test2():
+    assert morse.decode(".... . .-.. .-.. --- ...-..- .-- --- .-. .-.. -..") == "HELLO$WORLD", print("Should be HELLO$WORLD")
+    print("Test passed successfully")
 
-    def unit_tests_decode_bt1(self):
-        self.assertEqual(morse.decode_bt("..-"), "U")
+def additional_symbol_test3():
+    assert morse.decode("- .... .. ... ..-.- / .. ... / -. .. -.-. .") == "THIS¿ IS NICE", print("Should be THIS¿ IS NICE")
+    print("Test passed successfully")
+        
+def unit_tests_decode_bt1():
+    assert morse.decode_bt("..-") == "U", print("Should be U")
+    print("Test passed successfully")
+
+def unit_tests_decode_bt2():
+    assert morse.decode_bt("... --- ...") == "SOS", print("Should be SOs")
+    print("Test passed successfully")
     
-    def unit_tests_decode_bt2(self):
-        self.assertEqual(morse.decode_bt("... --- ..."), "SOS")
+def unit_tests_decode_bt3():
+    assert morse.decode_bt(".... . .-.. .-.. --- / - .... . .-. .") == "HELLO THERE", print("Should be HELLO THERE")
+    print("Test passed succesfully")
 
-    def unit_tests_decode_bt3(self):
-        self.assertEqual(morse.decode_bt(".... . .-.. .-.. --- / - .... . .-. ."), "HELLO THERE")
+def unit_tests_decode_bt4():
+    assert morse.decode_bt("..--") ==  "%", print("Should be % (an empty node)")
+    print("Test passed successfully")
     
-    def unit_tests_decode_bt4(self):
-        self.assertEqual(morse.decode_bt("..--"), "%")
-        
-    def unit_tests_decode_bt5(self):
-        self.assertEqual(morse.decode_bt("... -..-. --- -..-. ..."), "S/O/S")
-        
-    def unit_tests_decode_bt6(self):
-        self.assertEqual(morse.decode_bt("... ..- -. -. -.-- -...- -.. .- -.--"), "SUNNY=DAY")
+def unit_tests_decode_bt5():
+    assert morse.decode_bt("... -..-. --- -..-. ...") == "S/O/S", print("Should be S/O/S")
+    print("Test passed successfully")
 
-        
+def unit_tests_decode_bt6():
+    assert morse.decode_bt("... ..- -. -. -.-- -...- -.. .- -.--") == "SUNNY=DAY", print("Should be SUNNY=DAY")
+    print("Test passed successfully")
+
+def unit_test_encode_ham1():
+    assert morse.encode_ham("s1","computer", "hello") == "-.-. --- -- .--. ..- - . .-. -.. . ... .---- -...- .... . .-.. .-.. --- -...- -.--.", print("Should be -.-. --- -- .--. ..- - . .-. -.. . ... .---- -...- .... . .-.. .-.. --- -...- -.--.")
+    print("Test passed successfuly")
+
+def unit_test_encode_ham2():
+    assert morse.encode_ham("s-1","c0mpute$","h_llo") == "-.-. ----- -- .--. ..- - . ...-..- -.. . ... -....- .---- -...- .... ..--.- .-.. .-.. --- -...- -.--.", print("Should be -.-. ----- -- .--. ..- - . ...-..- -.. . ... -....- .---- -...- .... ..--.- .-.. .-.. --- -...- -.--.")
+    print("Test passed successfully")
+
+def unit_test_decode_ham1():
+    assert morse.decode_ham("- .... . -..-. . -.-. .... --- -.. . -... .- ... ... .- -- -..-. .- .-.. .. -...- .--- ..- ... - -..-. .- -..-. -- . ... ... .- --. . -...- -.--.") == "Decoded:\nMessage from: bassam ali\nMessage to: the echo\nMessage content: just a message", print("Should be THE/ECHODEBASSAM/ALI=JUST/A/MESSAGE=(")
+    print("Test passed successfully")
+
 if __name__ == "__main__":
+    additional_symbol_test()
+    addtional_symbol_test2()
+    additional_symbol_test3()
+    unit_tests_decode_bt1()
+    unit_tests_decode_bt2()
+    unit_tests_decode_bt3()
+    unit_tests_decode_bt4()
+    unit_tests_decode_bt5()
+    unit_tests_decode_bt6()
+    unit_test_encode_ham1()
+    unit_test_encode_ham2()
+    unit_test_decode_ham1()
     unittest.main()
     
