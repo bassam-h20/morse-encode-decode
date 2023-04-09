@@ -87,8 +87,9 @@ class morse:
         morse_receiver = morse.encode(receiver)
         morse_sender = morse.encode(sender)
         morse_msg = morse.encode(msg)
-        encoded_msg2 = f"{morse_receiver} -.. . {morse_sender} -...- {morse_msg} -...- -.--."
-        return encoded_msg2
+        encoded_msg2 = f"{morse_receiver} -.. . {morse_sender} -...- {morse_msg} -...- -.--." 
+        encoded_msg3 = morse_receiver+" -.. . "+morse_sender+" -...- "+morse_msg+" -...- -.--."
+        return encoded_msg3
     
 
     
